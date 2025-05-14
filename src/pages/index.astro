@@ -1,0 +1,1310 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import CTA from "@components/CTA.astro";
+import FAQ from "@components/FAQ.astro";
+import "../styles/global.css";
+
+// Optimize our landing image and pass it as props to the BaseLayout (for preloading) and Landing (for rendering)
+import landingImage from "@assets/images/landing.jpg" // <-- THE PATH TO THE ASSET YOU WANT TO PRELOAD - The asset must live in src
+import { getImage } from "astro:assets";
+const optimizedImage = await getImage({src: landingImage, format: 'avif'})
+---
+
+<BaseLayout
+  title="Pixel Perfect Websites"
+  description="Meta description for the page"
+  preloadedImage = {optimizedImage}
+>
+  <!-- ============================================ -->
+  <!--                    Hero                      -->
+  <!-- ============================================ -->
+
+ <section id="home">
+  <div class="w-full flex flex-col justify-center items-center">
+    <div class="relative w-full flex flex-col items-center justify-center overflow-hidden md:hidden" style="height: clamp(500px, 50vw, 800px); margin: 0;">
+      <!-- Background video -->
+      <div class="absolute inset-0 -z-10 bg-black">
+        <video autoplay muted loop playsinline class="w-full h-full object-cover opacity-50 md:hidden">
+          <source src="/assets/videos/mistRvideo.mp4" type="video/mp4">
+        </video>
+        <img src="/assets/images/mistingBg.jpg" class="hidden md:block md:object-cover md:h-full md:w-full">
+        
+      </div>
+      <!-- Content -->
+      <div class="w-4/5 flex flex-col justify-center items-center mt-5 text-center z-10 md:hidden" >
+        <!-- <img src="/assets/images/mistRtextLogo.png" class="w-full mb-4" /> -->
+        <h1 class="font-bold text-2xl place-items-center sm:text-center" style="margin-left: 1rem; color:white;margin-bottom: 2rem;margin-top: 2rem;">
+     REFRESHINGLY COOL.<br class="sm:hidden"> NATURALLY SAFE. <br class="sm:hidden">HASSLE-FREE.</h1>
+        <h1 class="font-bold" style="color: #68bbe9;">
+          We are a local, family run business specializing in residential and commercial patio cool mist system rentals, sales, installation and servicing.
+        </h1> 
+        <a href="#contact" class="cs-button-solid" style="margin-top: 20px;">Contact Us</a> 
+      </div>
+    </div>
+     <!-- Desktop View -->
+<div class="hidden md:flex md:flex-col md:items-center md:justify-center md:relative w-full h-[700px] md:h-[85vw] lg:h-[800px] overflow-hidden m-0">
+  <!-- Background Image -->
+  <div class="absolute inset-0 -z-10">
+    <img src="/assets/images/mistingBg.jpg" class="w-full h-full object-cover" alt="Background Image">
+  </div>
+
+  <!-- Content Container -->
+  <div class="w-5/6 flex flex-row justify-evenly items-center z-10">
+    <!-- Text Content -->
+    <div class="w-3/5 flex flex-col justify-start items-center mt-5">
+      <h1 class="font-bold text-5xl text-left lg:text-6xl mb-8 mt-16 self-start" style="color: #2d5ca8;">
+        REFRESHINGLY COOL.<br> NATURALLY SAFE. <br>HASSLE-FREE.
+      </h1>
+      <h2 class="font-bold text-xl text-white ml-4 lg:text-2xl">
+        We are a local, family run business specializing in residential and commercial patio cool mist system rentals, sales, installation and servicing.
+      </h2>
+      <a href="#contact" class="cs-button-solid self-start" style="margin-top: 20px;">Contact Us</a>
+    </div>
+
+    <!-- Video -->
+    <div class="w-2/5 flex justify-center overflow-hidden">
+      <video autoplay muted loop playsinline class=" object-contain rounded-2xl lg:w-3/4 xl:w-2/4">
+        <source src="/assets/videos/mistRvideo.mp4" type="video/mp4">
+      </video>
+    </div>
+  </div>
+</div>
+
+    <div class="w-full flex flex-row justify-center items-start bg-[#68bbe9]" style="margin-top: -20px;">
+      <div class="w-full grid grid-row-2 place-items-center" >
+        <img src="/assets/images/cool.png" class="w-1/3">
+        <h1 class="text-sm text-center md:text-xl lg:text-2xl" style="color:white;">Cool Zone</h1>
+      </div>
+      <div class="w-full grid grid-row-2 place-items-center" >
+        <img src="/assets/images/bugFree.png" class="w-1/3">
+        <h1 class="  text-sm text-center md:text-xl lg:text-2xl" style="color:white;">Safe & Natural Bug Deterrent</h1>
+      </div>
+      <div class="w-full grid grid-row-2 place-items-center" >
+        <img src="/assets/images/lowMaintenance.png" class="w-1/3">
+        <h1 class=" text-sm text-center md:text-xl lg:text-2xl" style="color:white;">Low Maintenance</h1>
+      </div>
+    </div>
+  </div>
+  </div>
+  
+ </section>
+
+   <!-- ============================================ -->
+  <!--                   Benefits                   -->
+  <!-- ============================================ -->
+
+<section id="benefits" class="w-full relative" style="margin-top: 32px;">
+    <h1 class="font-bold text-2xl place-items-center sm:text-center lg:text-3xl" style="margin-left: 1rem; color:#2d5ca8;margin-bottom: 1rem;">
+    FEATURES & BENEFITS</h1>
+    <div class="w-full flex flex-col justify-center items-center" style="margin-bottom: 2rem;">
+    <p class=" w-3/4 text-center text-sm lg:text-2xl">See how Mist’r adds comfort, safety, and ease to any outdoor space.</p>
+    </div>
+    <div class="relative w-full">
+      <div class="absolute inset-0 -z-10 bg-[#2d5ca8]">
+        <img src="/assets/images/featureBg.jpg" class="object-cover w-full h-full opacity-50">
+      </div>
+      <div class="relative w-5/6 z-10 flex flex-col justify-center items-center lg:w-3/4 lg:flex-row lg:flex-wrap lg:gap-x-8 xl:w-1/2" style="margin: auto;padding: 1rem 0;">
+        <div class="grid grid-cols-3 grid-row-2 rounded-2xl max-w-[350px] lg:h-[145px]" style="padding: 1rem;background-color: rgba(16, 16, 15, 0.5);margin: .5rem 0;">
+          <span class="text-5xl col-span-1 row-span-2 flex justify-center items-center lg:items-start">💧</span>
+          <h1 class="font-semibold col-span-2 lg:text-2xl" style="color: #68bbe9;">Instant Cooling</h1>
+          <p class="col-span-2" style="color: white;">Lowers outdoor temps by up to 20°F</p>
+        </div>
+
+        <div class="grid grid-cols-3 grid-row-2 rounded-2xl max-w-[350px] lg:h-[145px]" style="padding: 1rem;background-color: rgba(16, 16, 15, 0.5);margin: .5rem 0;">
+          <span class="text-5xl col-span-1 row-span-2 flex justify-center items-center">🌿</span>
+          <h1 class="font-semibold col-span-2 lg:text-2xl" style="color: #68bbe9;">Natural Bug Deterrent </h1>
+          <p class="col-span-2" style="color: white;">Keeps mosquitoes and flies away</p>
+        </div>
+
+        <div class="grid grid-cols-3 grid-row-2 rounded-2xl max-w-[350px] lg:h-[145px]" style="padding: 1rem;background-color: rgba(16, 16, 15, 0.5);margin: .5rem 0;">
+          <span class="text-5xl col-span-1 row-span-2 flex justify-center items-center">🧼</span>
+          <h1 class="font-semibold col-span-2 lg:text-2xl" style="color: #68bbe9;">Dust Control</h1>
+          <p class="col-span-2" style="color: white;">Reduces dust and allergens in the air</p>
+        </div>
+
+        <div class="grid grid-cols-3 grid-row-2 rounded-2xl max-w-[350px] lg:h-[145px]" style="padding: 1rem;background-color: rgba(16, 16, 15, 0.5);margin: .5rem 0;">
+          <span class="text-5xl col-span-1 row-span-2 flex justify-center items-center">🔧</span>
+          <h1 class="font-semibold col-span-2 lg:text-2xl" style="color: #68bbe9;">Low Maintenance</h1>
+          <p class="col-span-2" style="color: white;">Simple, reliable, and hassle-free</p>
+        </div>
+
+        <div class="grid grid-cols-3 grid-row-2 rounded-2xl max-w-[350px] lg:h-[145px]" style="padding: 1rem;background-color: rgba(16, 16, 15, 0.5);margin: .5rem 0;">
+          <span class="text-5xl col-span-1 row-span-2 flex justify-center items-center">🌞</span>
+          <h1 class="font-semibold col-span-2 lg:text-2xl" style="color: #68bbe9;">More Outdoor Time</h1>
+          <p class="col-span-2" style="color: white;">Stay outside comfortably all summer</p>
+        </div>
+
+        <div class="grid grid-cols-3 grid-row-2 rounded-2xl max-w-[350px] lg:h-[145px]" style="padding: 1rem;background-color: rgba(16, 16, 15, 0.5);margin: .5rem 0;">
+          <span class="text-5xl col-span-1 row-span-2 flex justify-center items-center">🏡</span>
+          <h1 class="font-semibold col-span-2 lg:text-2xl" style="color: #68bbe9;">Family & Pet Safe</h1>
+          <p class="col-span-2" style="color: white;">No harsh chemicals, just cool mist</p>
+        </div>
+
+        <div class="grid grid-cols-3 grid-row-2 rounded-2xl max-w-[350px] lg:h-[145px]" style="padding: 1rem;background-color: rgba(16, 16, 15, 0.5);margin: .5rem 0;">
+          <span class="text-5xl col-span-1 row-span-2 flex justify-center items-center">⚙️</span>
+          <h1 class="font-semibold col-span-2 lg:text-2xl" style="color: #68bbe9;">Flexible Options</h1>
+          <p class="col-span-2" style="color: white;">Rent or buy, for homes, businesses, or events</p>
+        </div>
+      </div>
+    </div>
+</section>
+  <!-- ============================================ -->
+  <!--                  Gallery                 -->
+  <!-- ============================================ -->
+
+ <section id="galley" class="" style="margin-top: 32px;">
+  <h1 class="font-bold text-2xl sm:text-center lg:text-3xl" style="margin-left: 1rem; color:#2d5ca8;">GALLERY</h1>
+  <div class="w-full flex flex-col justify-center items-center">
+    <p class=" w-3/4 text-center text-sm lg:text-2xl">Explore our gallery to see how Mist’r transforms outdoor spaces with 
+      refreshing, cool comfort.</p>
+  </div>
+  <div class="flex flex-col justify-center items-center lg:flex-row lg:justify-center lg:items-start gap-4 my-4" style="margin-top: 40px;">
+    <video autoplay muted loop playsinline class="w-3/4 lg:w-1/4 h-auto object-cover rounded-3xl">
+      <source src="/assets/videos/video1.mp4" type="video/mp4">
+    </video>
+    <video autoplay muted loop playsinline class="w-3/4 lg:w-1/4 h-auto object-cover rounded-3xl">
+      <source src="/assets/videos/video4.mp4" type="video/mp4">
+    </video>
+  </div>
+
+ </section>
+  <!-- ============================================ -->
+  <!--                  Reviews                -->
+  <!-- ============================================ -->
+
+ <section id="reviews" class="" style="margin-top: 32px;">
+  <h1 class="font-bold text-2xl sm:text-center lg:text-3xl" style="margin-left: 1rem; color:#2d5ca8;">REVIEWS</h1>
+  <div class="w-full flex flex-col justify-center items-center" style="margin-bottom: 2rem;">
+    <p class=" w-3/4 text-center text-sm lg:text-2xl">Hear from our happy customers about how Mist’r’s cooling systems have transformed their outdoor spaces.</p>
+  </div>
+  <div class="w-full flex flex-col justify-center items-center gap-x-4 lg:flex-row lg:w-3/4" style="margin:auto">
+    <div class="w-3/4 flex flex-col justify-center items-center border-2 border-gray-100 shadow-lg" style="padding: 30px 20px 30px 20px;margin: 1rem 0 1rem 0">
+      <div class="w-32 h-32 rounded-full overflow-hidden border-4 border-white">
+        <img src="/assets/images/review1.jpg" alt="Customer Photo" class="w-full h-full object-cover">
+      </div>
+      <h1 class="font-bold text-xl">Donald Brown</h1>
+      <div class="flex justify-center space-x-1">
+        <span class="text-yellow-400 text-3xl">★</span>
+        <span class="text-yellow-400 text-3xl">★</span>
+        <span class="text-yellow-400 text-3xl">★</span>
+        <span class="text-yellow-400 text-3xl">★</span>
+        <span class="text-yellow-400 text-3xl">★</span> <!-- Empty Star -->
+      </div>
+      <div>
+        <p class="italic">
+          "This product is amazing! It really helped me stay cool during the hot summer. Highly recommend it to everyone!"
+        </p>
+      </div>
+    </div>
+
+    <div class="w-3/4 flex flex-col justify-center items-center border-2 border-gray-100 shadow-lg" style="padding: 30px 20px 30px 20px;margin: 1rem 0 1rem 0">
+      <div class="w-32 h-32 rounded-full overflow-hidden border-4 border-white">
+        <img src="/assets/images/review2.jpg" alt="Customer Photo" class="w-full h-full object-cover">
+      </div>
+      <h1 class="font-bold text-xl">Kriselle Fox</h1>
+      <div class="flex justify-center space-x-1">
+        <span class="text-yellow-400 text-3xl">★</span>
+        <span class="text-yellow-400 text-3xl">★</span>
+        <span class="text-yellow-400 text-3xl">★</span>
+        <span class="text-yellow-400 text-3xl">★</span>
+        <span class="text-yellow-400 text-3xl">★</span> <!-- Empty Star -->
+      </div>
+      <div>
+        <p class="italic">
+          "This product is amazing! It really helped me stay cool during the hot summer. Highly recommend it to everyone!"
+        </p>
+      </div>
+    </div>
+    <div class="w-3/4 flex flex-col justify-center items-center border-2 border-gray-100 shadow-lg" style="padding: 30px 20px 30px 20px;margin: 1rem 0 1rem 0">
+      <div class="w-32 h-32 rounded-full overflow-hidden border-4 border-white">
+        <img src="/assets/images/review3.jpg" alt="Customer Photo" class="w-full h-full object-cover">
+      </div>
+      <h1 class="font-bold text-xl">Andrew Rodriquez</h1>
+      <div class="flex justify-center space-x-1">
+        <span class="text-yellow-400 text-3xl">★</span>
+        <span class="text-yellow-400 text-3xl">★</span>
+        <span class="text-yellow-400 text-3xl">★</span>
+        <span class="text-yellow-400 text-3xl">★</span>
+        <span class="text-yellow-400 text-3xl">★</span> <!-- Empty Star -->
+      </div>
+      <div>
+        <p class="italic">
+          "This product is amazing! It really helped me stay cool during the hot summer. Highly recommend it to everyone!"
+        </p>
+      </div>
+    </div>
+  </div>
+ </section>
+  <!-- ============================================ -->
+  <!--                   About US                   -->
+  <!-- ============================================ -->
+
+<section id="about" class="w-full" style="margin: 32px 0 32px 0;">
+  <h1 class="font-bold text-2xl place-items-center sm:text-center lg:text-3xl l" style="margin-left: 1rem; color:#2d5ca8;margin-bottom: 2rem;">
+    ABOUT US</h1>
+    <div class="w-4/5 lg:flex lg:flex-row lg:justify-center lg:items-start lg:gap-4 " style="margin:auto;">
+      <img src="/assets/images/mistingBg.jpg" class="w-full lg:w-1/2" style="margin-bottom: 20px;">
+      <h2 class="text-md text-justify indent-8 lg:text-2xl lg:hidden">Mist’r is a local, family-run
+         business dedicated to helping Missouri families and businesses stay cool, comfortable, and bug-free—even on
+          the hottest days.</h2>
+        <h2 class="indent-8 lg:text-2xl lg:indent-0 lg:hidden">With a passion for outdoor living and a commitment to customer satisfaction, we 
+        specialize in high-pressure patio misting systems for residential, commercial, and event use. 
+        Whether you’re hosting a backyard BBQ, managing a busy restaurant patio, or planning a summer event, our misting 
+        systems bring refreshing relief and reliable performance.</h2>
+        <h2 class="indent-8 lg:text-2xl lg:indent-0 lg:hidden">From rentals and sales to professional installation and maintenance, Mist’r 
+        offers complete misting solutions built around your needs. We proudly serve communities
+        throughout Downtown West St. Louis, Cottleville, Clayton, O'Fallon, Ladue, St. Louis, St. Charles, 
+        Chesterfield, and Saint Peters.Cool comfort starts here—with Mist’r.</h2>  
+        <!--DeskTOP view -->
+      <h2 class="hidden lg:block lg:text-2xl">Mist’r is a local, family-run
+         business dedicated to helping Missouri families and businesses stay cool, comfortable, and bug-free—even on
+          the hottest days.
+        With a passion for outdoor living and a commitment to customer satisfaction, we 
+        specialize in high-pressure patio misting systems for residential, commercial, and event use. 
+        Whether you’re hosting a backyard BBQ, managing a busy restaurant patio, or planning a summer event, our misting 
+        systems bring refreshing relief and reliable performance.
+        From rentals and sales to professional installation and maintenance, Mist’r 
+        offers complete misting solutions built around your needs. We proudly serve communities
+        throughout Downtown West St. Louis, Cottleville, Clayton, O'Fallon, Ladue, St. Louis, St. Charles, 
+        Chesterfield, and Saint Peters.Cool comfort starts here—with Mist’r.</h2>     
+    </div>
+</section>
+ 
+
+  <CTA />
+</BaseLayout>
+
+<style lang="less">
+  /* STYLES FOR ABOVE THE FOLD */
+
+  /*-- -------------------------- -->
+<---           Hero             -->
+<--- -------------------------- -*/
+
+  /* Mobile - 360px */
+  @media only screen and (min-width: 0em) {
+    #hero {
+      font-family: "Roboto", "Arial", sans-serif;
+      /* Centers button */
+      text-align: center;
+      /* changes on tablet */
+      padding: 0 (16/16rem);
+      padding-bottom: (100/16rem);
+      position: relative;
+      z-index: 1;
+      /* prevents overflow from the lines extending past the screen width */
+      overflow: hidden;
+
+      .cs-picture {
+        /* Background Image */
+        width: 100%;
+        height: 100%;
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -2;
+
+        &:before {
+          /* Black Color Overlay */
+          content: "";
+          width: 100%;
+          height: 100%;
+          background: #000;
+          opacity: 0.7;
+          display: block;
+          position: absolute;
+          top: 0;
+          left: 0;
+          z-index: 1;
+          /* prevents the cursor from interacting with it */
+          pointer-events: none;
+        }
+
+        img {
+          width: 100%;
+          height: 100%;
+          /* Makes image act like a background-image */
+          object-fit: cover;
+          position: absolute;
+          top: 0;
+          left: 0;
+        }
+      }
+
+      .cs-container {
+        width: 100%;
+        max-width: (1280/16em);
+        margin: auto;
+        /* we put the padding top and bottom on the container instead of #Hero so the pseudo element lines go to the top and bottom of the section */
+        /* 144px - 280px - leaving extra space for the navigation */
+        /* changes on tablet */
+        padding: clamp(9em, 25.95vw, 17.5em) 0;
+        position: relative;
+
+        &:before {
+          /* Left Line */
+          content: "";
+          width: 1px;
+          height: 100%;
+          background: -moz-linear-gradient(
+            top,
+            rgba(250, 251, 252, 0.5) 0%,
+            rgba(250, 251, 252, 0) 100%
+          ); /* FF3.6-15 */
+          background: -webkit-linear-gradient(
+            top,
+            rgba(250, 251, 252, 0.5) 0%,
+            rgba(250, 251, 252, 0) 100%
+          ); /* Chrome10-25,Safari5.1-6 */
+          opacity: 1;
+          display: block;
+          position: absolute;
+          top: 0;
+          left: 0;
+        }
+      }
+
+      .cs-flex-group {
+        width: 80vw;
+        /* 464px - 562px */
+        max-width: clamp(29em, 60vw, 35.125em);
+        margin: auto;
+        /* 60px - 220px */
+        margin-bottom: clamp(3.75em, 15.5vw, 13.75em);
+        box-sizing: border-box;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        flex-wrap: wrap;
+      }
+
+      .cs-topper {
+        text-align: center;
+        margin-bottom: (16/16rem);
+        color: var(--primary);
+      }
+
+      .cs-title {
+        text-align: center;
+        width: 100%;
+        color: var(--bodyTextColorWhite);
+      }
+
+      .cs-text {
+        text-align: center;
+        /* 32px - 40px */
+        margin: 0 auto clamp(2rem, 4vw, 2.5rem) 0;
+        /* 40px - 48px */
+        margin-bottom: clamp(2.5rem, 4vw, 3rem);
+        color: var(--bodyTextColorWhite);
+      }
+
+      .cs-button-solid {
+        line-height: clamp(2.875em, 5.5vw, 3.5em);
+        height: initial;
+        margin-bottom: calc(16 / 16 * 1rem);
+      }
+
+      .cs-button-transparent {
+        font-size: (16/16rem);
+        font-weight: 700;
+        /* 46px - 56px */
+        line-height: clamp(2.875em, 5.5vw, 3.5em);
+        text-decoration: none;
+        width: (180/16rem);
+        /* 46px - 56px */
+        height: clamp(2.875em, 5.5vw, 3.5em);
+        margin: 0 (8/16rem);
+        box-sizing: border-box;
+        padding: 0;
+        color: #fff;
+        background-color: transparent;
+        border: 1px solid var(--bodyTextColorWhite);
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        z-index: 1;
+
+        &:before {
+          content: "";
+          background: #000;
+          opacity: 1;
+          display: block;
+          position: absolute;
+          /* so it sits on top of the border */
+          top: -1px;
+          right: -1px;
+          bottom: -1px;
+          left: -1px;
+          z-index: -1;
+          /* this is what creates the grow affect on hover */
+          transform: scaleX(0);
+          transition: transform 0.3s;
+          transform-origin: left;
+        }
+
+        &:hover {
+          &:before {
+            transform: scaleX(1);
+          }
+        }
+
+        .cs-img {
+          margin-right: (12/16rem);
+          display: block;
+        }
+      }
+    }
+  }
+
+  /* Tablet - 768px */
+  @media only screen and (min-width: 48em) {
+    #hero {
+      /* 32px - 40px */
+      padding: 0 clamp(2em, 5vw, 2.5em);
+
+      .cs-container {
+        padding: clamp(7em, 27.95vw, 17.5em) 0 clamp(9em, 30.95vw, 23.5em) 0;
+        &:after {
+          /* Right Line */
+          content: "";
+          width: 1px;
+          height: 100%;
+          background: -moz-linear-gradient(
+            top,
+            rgba(250, 251, 252, 0) 0%,
+            rgba(250, 251, 252, 0.5) 100%
+          ); /* FF3.6-15 */
+          background: -webkit-linear-gradient(
+            top,
+            rgba(250, 251, 252, 0) 0%,
+            rgba(250, 251, 252, 0.5) 100%
+          ); /* Chrome10-25,Safari5.1-6 */
+          opacity: 1;
+          display: block;
+          position: absolute;
+          top: 0;
+          right: 0;
+        }
+      }
+
+      .cs-button-solid {
+        margin-right: (20/16rem);
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  /* Desktop Parallax Effect - 1300px */
+  @media only screen and (min-width: 81.25em) {
+    #hero {
+      background: url("/assets/images/hero.jpg");
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      /* creates parallax effect on background image */
+      background-attachment: fixed;
+    }
+  }
+
+  /* Dark Mode */
+  @media only screen and (min-width: 0em) {
+    body.dark-mode {
+      #hero {
+        .cs-background {
+          &:before {
+            opacity: 0.8;
+          }
+        }
+      }
+    }
+  }
+
+  /*-- -------------------------- -->
+<---          Services          -->
+<--- -------------------------- -*/
+
+  /* Mobile */
+  @media only screen and (min-width: 0em) {
+    .services {
+      width: 90%;
+      max-width: (1320/16em);
+      margin: auto;
+      margin-top: (-167/16em);
+      margin-bottom: (50/16em);
+      padding: (50/16em) (20/16em);
+      background: #fff;
+      box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.05);
+      border-top: (6/16em) solid var(--primary);
+      border-radius: (5/16em);
+      position: relative;
+      z-index: 100;
+      .card {
+        width: 100%;
+        max-width: (357/16em);
+        margin: auto;
+        margin-bottom: (50/16em);
+        display: block;
+        &:last-of-type {
+          margin-bottom: 0;
+        }
+
+        picture {
+          width: (88/16em);
+          height: (88/16em);
+          margin: auto;
+          margin-bottom: (23/16em);
+          background: var(--primary);
+          border-radius: 50%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          img {
+            width: (48/16em);
+            height: (48/16em);
+          }
+        }
+        h2 {
+          font-size: (32/16em);
+          font-weight: 700;
+          line-height: 27/20em;
+          text-align: center;
+          margin-bottom: 13/20em;
+          color: #1a1a1a;
+        }
+        p {
+          line-height: 24/18em;
+          text-align: center;
+          width: 100%;
+          opacity: 0.7;
+        }
+      }
+    }
+  }
+
+  /* Inbetween */
+  @media only screen and (min-width: 768px) {
+    .services {
+      font-size: ~"min(1.8vw, 1em)";
+      width: 98%;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+
+      .card {
+        max-width: (325/16em);
+        margin: 0;
+      }
+    }
+  }
+
+  /* Large Desktop */
+  @media only screen and (min-width: 1300px) {
+    .services {
+      padding: (50/16em) (80/16em);
+
+      .card {
+        max-width: (357/16em);
+      }
+    }
+  }
+
+  /* Dark mode */
+  @media only screen and (min-width: 0em) {
+    body.dark-mode {
+      #services {
+        background: var(--medium);
+
+        picture {
+          background: var(--primaryDark);
+        }
+
+        h2 {
+          font-weight: bold;
+          color: #fff;
+        }
+      }
+    }
+  }
+
+  /* PAGE-SPECIFIC STYLES FOR THE HOME PAGE */
+
+  /*-- -------------------------- -->
+<---       Side By Side         -->
+<--- -------------------------- -*/
+
+  /* Mobile - 360px */
+  @media only screen and (min-width: 0em) {
+    #sbs {
+      padding: var(--sectionPadding);
+
+      .cs-container {
+        width: 100%;
+        max-width: (1280/16rem);
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        row-gap: (40/16rem);
+      }
+
+      .cs-left {
+        /* scaling the font size with the view width */
+        font-size: ~"min(2.31vw, .7em)";
+        /* using ems so we can use font size to scale the whole section */
+        width: (631/16em);
+        height: (636/16em);
+        position: relative;
+      }
+
+      .cs-picture {
+        border-radius: (24/16em);
+        display: block;
+        position: absolute;
+        /* clips img tag corners */
+        overflow: hidden;
+        img {
+          width: 100%;
+          height: 100%;
+          /* makes image act like a background image */
+          object-fit: cover;
+          position: absolute;
+          top: 0;
+          left: 0;
+        }
+      }
+
+      .cs-picture1 {
+        width: (522/16em);
+        height: (581/16em);
+        top: 0;
+        left: 0;
+      }
+
+      .cs-picture2 {
+        width: (414/16em);
+        height: (400/16em);
+        background-color: #fff;
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 40px;
+        /* 6px - 12px */
+        border: clamp(0.375em, 1.5vw, 0.75em) solid #fff;
+        right: 0;
+        bottom: 0;
+      }
+
+      .cs-right {
+        max-width: (542/16rem);
+        margin: auto;
+      }
+
+      .cs-topper {
+        text-align: left;
+        margin-bottom: (4/16rem);
+      }
+
+      .cs-title {
+        text-align: left;
+        max-width: (800/16rem);
+      }
+
+      .cs-text {
+        text-align: left;
+        max-width: (750/16rem);
+        margin-bottom: (16/16rem);
+
+        &:last-of-type {
+          margin-bottom: (32/16rem);
+        }
+      }
+
+      .cs-flex-group {
+        /* 16px - 32px */
+        padding: clamp(1rem, 3vw, 2rem);
+        background-color: #f7f7f7;
+        border-radius: (16/16rem);
+        position: relative;
+      }
+
+      .cs-flex-p {
+        /* 14px - 16px */
+        font-size: clamp(0.875rem, 1.5vw, 1rem);
+        line-height: 1.5em;
+        margin: 0 0 (16/16rem);
+        color: #353535;
+      }
+
+      .cs-name {
+        font-size: (16/16rem);
+        font-weight: bold;
+        line-height: 1.2em;
+        text-transform: uppercase;
+        margin: 0 0 (4/16rem);
+        color: var(--headerColor);
+        display: block;
+      }
+
+      .cs-job {
+        font-size: (14/16rem);
+        line-height: 1.5em;
+        color: #353535;
+        display: block;
+      }
+
+      .cs-quote-icon {
+        /* 60px - 136px */
+        width: clamp(3.75rem, 10vw, 8.5rem);
+        height: auto;
+        position: absolute;
+        /* 16px - 32px */
+        right: clamp(1rem, 4vw, 2rem);
+        bottom: (0/16rem);
+      }
+
+      .cs-button-solid {
+        margin-top: (32/16rem);
+      }
+    }
+  }
+
+  /* Desktop - 1024px */
+  @media only screen and (min-width: 64em) {
+    #sbs {
+      .cs-container {
+        flex-flow: row;
+        justify-content: space-between;
+        gap: (52/16rem);
+      }
+
+      .cs-left {
+        font-size: ~"min(1.2vw, 1em)";
+        flex: none;
+      }
+
+      .cs-right {
+        margin: 0;
+      }
+    }
+  }
+
+  /* Dark Mode */
+  @media only screen and (min-width: 0em) {
+    body.dark-mode {
+      #sbs {
+        .cs-left {
+          &:before,
+          &:after {
+            background: var(--accent);
+          }
+        }
+
+        .cs-picture2 {
+          background-color: var(--dark);
+          /* 6px - 12px */
+          border: clamp(0.375em, 1.5vw, 0.75em) solid var(--dark);
+        }
+
+        .cs-topper {
+          color: var(--primaryLight);
+        }
+
+        .cs-title,
+        .cs-text,
+        .cs-h3,
+        .cs-flex-p,
+        .cs-name {
+          color: var(--bodyTextColorWhite);
+        }
+
+        .cs-flex-group {
+          background-color: var(--accent);
+        }
+
+        .cs-job {
+          color: var(--bodyTextColorWhite);
+          opacity: 0.8;
+        }
+
+        .cs-quote-icon {
+          opacity: 0.2;
+        }
+      }
+    }
+  }
+
+  /*-- -------------------------- -->
+<---       Side By Side         -->
+<--- -------------------------- -*/
+
+  /* Mobile - 360px */
+  @media only screen and (min-width: 0em) {
+    #sbs-r {
+      padding: var(--sectionPadding);
+
+      .cs-container {
+        width: 100%;
+        max-width: (1280/16rem);
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        row-gap: (40/16rem);
+      }
+
+      .cs-left {
+        /* scaling the font size with the view width */
+        font-size: ~"min(2.31vw, .7em)";
+        /* using ems so we can use font size to scale the whole section */
+        width: (631/16em);
+        height: (636/16em);
+        position: relative;
+      }
+
+      .cs-picture {
+        border-radius: (24/16em);
+        display: block;
+        position: absolute;
+        /* clips img tag corners */
+        overflow: hidden;
+        img {
+          width: 100%;
+          height: 100%;
+          /* makes image act like a background image */
+          object-fit: cover;
+          position: absolute;
+          top: 0;
+          left: 0;
+        }
+      }
+
+      .cs-picture1 {
+        width: (522/16em);
+        height: (581/16em);
+        top: 0;
+        right: 0;
+      }
+
+      .cs-picture2 {
+        width: (414/16em);
+        height: (400/16em);
+        background-color: #fff;
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 40px;
+        /* 6px - 12px */
+        border: clamp(0.375em, 1.5vw, 0.75em) solid #fff;
+        bottom: 0;
+        left: 0;
+      }
+
+      .cs-right {
+        max-width: (542/16rem);
+        margin: auto;
+      }
+
+      .cs-topper {
+        text-align: left;
+        margin-bottom: (4/16rem);
+      }
+
+      .cs-title {
+        text-align: left;
+        max-width: (800/16rem);
+      }
+
+      .cs-text {
+        text-align: left;
+        max-width: (750/16rem);
+        margin-bottom: (16/16rem);
+        &:last-of-type {
+          margin-bottom: (32/16rem);
+        }
+      }
+
+      .cs-flex-group {
+        /* 16px - 32px */
+        padding: clamp(1rem, 3vw, 2rem);
+        background-color: #f7f7f7;
+        border-radius: (16/16rem);
+        position: relative;
+      }
+
+      .cs-flex-p {
+        /* 14px - 16px */
+        font-size: clamp(0.875rem, 1.5vw, 1rem);
+        line-height: 1.5em;
+        margin: 0 0 (16/16rem);
+        color: #353535;
+      }
+
+      .cs-name {
+        font-size: (16/16rem);
+        font-weight: bold;
+        line-height: 1.2em;
+        text-transform: uppercase;
+        margin: 0 0 (4/16rem);
+        color: var(--headerColor);
+        display: block;
+      }
+
+      .cs-job {
+        font-size: (14/16rem);
+        line-height: 1.5em;
+        color: #353535;
+        display: block;
+      }
+
+      .cs-quote-icon {
+        /* 60px - 136px */
+        width: clamp(3.75rem, 10vw, 8.5rem);
+        height: auto;
+        position: absolute;
+        /* 16px - 32px */
+        right: clamp(1rem, 4vw, 2rem);
+        bottom: (0/16rem);
+      }
+    }
+  }
+
+  /* Desktop - 1024px */
+  @media only screen and (min-width: 64em) {
+    #sbs-r {
+      .cs-container {
+        flex-flow: row;
+        justify-content: space-between;
+        gap: (52/16rem);
+      }
+
+      .cs-left {
+        font-size: ~"min(1.2vw, 1em)";
+        /* sends it to the right */
+        order: 2;
+        flex: none;
+      }
+
+      .cs-right {
+        margin: 0;
+      }
+    }
+  }
+
+  /* Dark Mode */
+  @media only screen and (min-width: 0em) {
+    body.dark-mode {
+      #sbs-r {
+        .cs-left {
+          &:before,
+          &:after {
+            background: var(--accent);
+          }
+        }
+
+        .cs-picture2 {
+          background-color: var(--dark);
+          /* 6px - 12px */
+          border: clamp(0.375em, 1.5vw, 0.75em) solid var(--dark);
+        }
+
+        .cs-topper {
+          color: var(--primaryLight);
+        }
+
+        .cs-title,
+        .cs-text,
+        .cs-h3,
+        .cs-flex-p,
+        .cs-name {
+          color: var(--bodyTextColorWhite);
+        }
+
+        .cs-flex-group {
+          background-color: var(--accent);
+        }
+
+        .cs-job {
+          color: var(--bodyTextColorWhite);
+          opacity: 0.8;
+        }
+
+        .cs-quote-icon {
+          opacity: 0.2;
+        }
+      }
+    }
+  }
+
+  /*-- -------------------------- -->
+<---          Gallery           -->
+<--- -------------------------- -*/
+
+  /* Mobile - 360px - Contains hover animation */
+  @media only screen and (min-width: 0em) {
+    #gallery {
+      /* Centers button */
+      text-align: center;
+      padding: var(--sectionPadding);
+      position: relative;
+      /* Prevents overflow from the image going off screen */
+      overflow: hidden;
+      .cs-container {
+        width: 100%;
+        max-width: (1322/16em);
+        margin: auto;
+      }
+
+      .cs-topper {
+        text-align: center;
+        margin-bottom: (16/16rem);
+      }
+
+      .cs-title {
+        text-align: center;
+        max-width: (621/16rem);
+        margin-bottom: (40/16rem);
+      }
+
+      .cs-image-group {
+        /* used rem so it doesn't scale with the font size of on parent */
+        font-size: ~"min(1.1vw, 1em)";
+        width: 100%;
+        max-width: (1322/16em);
+        margin: 0 auto (60/16rem);
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        gap: (30/16em);
+      }
+
+      .cs-row {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        gap: (30/16em);
+      }
+
+      .cs-picture {
+        display: block;
+        position: relative;
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          position: absolute;
+          top: 0;
+          left: 0;
+        }
+      }
+
+      .cs-row-1 {
+        .cs-picture1 {
+          width: (420/16em);
+          height: (567/16em);
+        }
+
+        .cs-picture2 {
+          width: (420/16em);
+          height: (629/16em);
+        }
+
+        .cs-picture3 {
+          width: (420/16em);
+          height: (512/16em);
+        }
+      }
+
+      .cs-row-2 {
+        .cs-picture1 {
+          width: (420/16em);
+          height: (492/16em);
+        }
+
+        .cs-picture2 {
+          width: (420/16em);
+          height: (517/16em);
+        }
+
+        .cs-picture3 {
+          width: (420/16em);
+          height: (629/16em);
+        }
+      }
+
+      .cs-row-3 {
+        .cs-picture1 {
+          width: (420/16em);
+          height: (625/16em);
+        }
+
+        .cs-picture2 {
+          width: (420/16em);
+          height: (452/16em);
+        }
+
+        .cs-picture3 {
+          width: (420/16em);
+          height: (629/16em);
+        }
+      }
+    }
+  }
+
+  /* Dark mode */
+  @media only screen and (min-width: 0em) {
+    body.dark-mode {
+      #gallery {
+        .cs-title {
+          color: var(--bodyTextColorWhite);
+        }
+      }
+    }
+  }
+
+  /*-- -------------------------- -->
+<---          Reviews           -->
+<--- -------------------------- -*/
+
+  /* Mobile - 360px */
+  @media only screen and (min-width: 0em) {
+    #reviews {
+      /* Centers the button */
+      text-align: center;
+      padding: var(--sectionPadding);
+
+      .cs-container {
+        width: 100%;
+        max-width: (1104/16rem);
+        margin: auto;
+      }
+
+      .cs-topper {
+        text-align: center;
+        margin-bottom: (16/16rem);
+      }
+
+      .cs-title {
+        text-align: center;
+        max-width: (700/16rem);
+      }
+
+      .cs-text {
+        text-align: center;
+        max-width: (650/16rem);
+        /* 88px - 104px */
+        margin-bottom: clamp(5.5em, 10.2vw, 6.5em);
+      }
+
+      .cs-card-group {
+        /* 48px - 64px */
+        margin: 0 auto clamp(3rem, 5vw, 4rem);
+        padding: 0;
+      }
+
+      .cs-item {
+        text-align: left;
+        list-style: none;
+        width: 100%;
+        max-width: (542/16rem);
+        margin: 0 auto (64/16rem);
+        /* Prevents padding from affecting height & width */
+        box-sizing: border-box;
+        /* Padding L & R - 16px - 32px */
+        padding: (60/16rem) clamp(1rem, 3.2vw, 2rem) 0;
+        /* 32px - 40px */
+        padding-bottom: clamp(2rem, 5.4vw, 2.5rem);
+        background: #fff;
+        box-shadow: 0px 20px 39px 0px rgba(0, 0, 0, 0.05);
+        border-radius: (4/16rem);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        position: relative;
+
+        &:last-of-type {
+          margin-bottom: 0;
+        }
+      }
+
+      .cs-item-img {
+        width: (80/16rem);
+        height: (80/16rem);
+        position: absolute;
+        top: (-40/16rem);
+      }
+
+      .cs-item-p {
+        font-size: (16/16rem);
+        line-height: 1.5em;
+        margin: 0 0 (20/16rem);
+        padding-bottom: (20/16rem);
+        color: var(--bodyTextColor);
+        border-bottom: 1px solid #e8e9ec;
+      }
+
+      .cs-reviewer {
+        font-size: (16/16rem);
+        font-weight: 700;
+        line-height: 1.5em;
+        width: 40%;
+        margin: 0 auto 0 0;
+        color: var(--headerColor);
+        display: block;
+      }
+
+      .cs-desc {
+        font-size: (14/16rem);
+        font-weight: 400;
+        color: var(#353535);
+        display: block;
+      }
+
+      .cs-item-stars {
+        width: (96/16rem);
+        height: (16/16rem);
+      }
+    }
+  }
+
+  /* Tablet - 768px */
+  @media only screen and (min-width: 48em) {
+    #reviews {
+      .cs-card-group {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: (16/16rem);
+      }
+
+      .cs-item {
+        /* reset margin so it won't interfere with flexbox */
+        margin: 0;
+      }
+    }
+  }
+
+  /* Dark Mode */
+  @media only screen and (min-width: 0em) {
+    body.dark-mode {
+      #reviews {
+        .cs-title,
+        .cs-text,
+        .cs-item-p,
+        .cs-reviewer {
+          color: var(--bodyTextColorWhite);
+        }
+
+        .cs-item {
+          background: var(--medium);
+        }
+
+        .cs-desc {
+          color: var(--primaryLight);
+        }
+      }
+    }
+  }
+</style>
