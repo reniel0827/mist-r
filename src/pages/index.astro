@@ -3,15 +3,17 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 import CTA from "@components/CTA.astro";
 import FAQ from "@components/FAQ.astro";
 import "../styles/global.css";
+import client from "@data/client.json";
+
 
 // Optimize our landing image and pass it as props to the BaseLayout (for preloading) and Landing (for rendering)
-import landingImage from "@assets/images/landing.jpg" // <-- THE PATH TO THE ASSET YOU WANT TO PRELOAD - The asset must live in src
+import landingImage from "public/assets/images/mistRlogo.png" // <-- THE PATH TO THE ASSET YOU WANT TO PRELOAD - The asset must live in src
 import { getImage } from "astro:assets";
 const optimizedImage = await getImage({src: landingImage, format: 'avif'})
 ---
 
 <BaseLayout
-  title="Pixel Perfect Websites"
+  title="Mist'r Service"
   description="Meta description for the page"
   preloadedImage = {optimizedImage}
 >
@@ -38,7 +40,7 @@ const optimizedImage = await getImage({src: landingImage, format: 'avif'})
         <h1 class="font-bold" style="color: #68bbe9;">
           We are a local, family run business specializing in residential and commercial patio cool mist system rentals, sales, installation and servicing.
         </h1> 
-        <a href="#contact" class="cs-button-solid" style="margin-top: 20px;">Contact Us</a> 
+        <a href="#cs-contact" class="cs-button-solid" style="margin-top: 20px;">Contact Us</a> 
       </div>
     </div>
      <!-- Desktop View -->
@@ -58,7 +60,7 @@ const optimizedImage = await getImage({src: landingImage, format: 'avif'})
       <h2 class="font-bold text-xl text-white ml-4 lg:text-2xl">
         We are a local, family run business specializing in residential and commercial patio cool mist system rentals, sales, installation and servicing.
       </h2>
-      <a href="#contact" class="cs-button-solid self-start" style="margin-top: 20px;">Contact Us</a>
+      <a href="#cs-contact" class="cs-button-solid self-start" style="margin-top: 20px;">Contact Us</a>
     </div>
 
     <!-- Video -->
@@ -88,22 +90,96 @@ const optimizedImage = await getImage({src: landingImage, format: 'avif'})
   </div>
   
  </section>
+<!-- ============================================ -->
+  <!--                   Our Services             -->
+  <!-- ============================================ -->
 
-   <!-- ============================================ -->
+<section id="services" class="w-full relative" style="margin-top: clamp(4rem,20vw,8rem);">
+    <h1 class="font-bold text-2xl place-items-center sm:text-center lg:text-3xl" style="margin-left: 1rem; color:#2d5ca8;margin-bottom: 1rem;">
+    OUR SERVICES</h1>
+    <div class="w-full flex flex-col justify-center items-center" style="margin-bottom: 2rem;">
+    <p class=" w-3/4 text-center text-sm lg:text-2xl">From sales and professional installation to customization and a comprehensive maintenance plan, <br class="md:block">Mist’r Service provides complete misting system solutions tailored to your needs.</p>
+    </div>
+    <div class="w-full">
+      <div class="w-9/10 flex flex-col justify-center items-center md:flex-row md:flex-wrap md:items-start md:gap-4 xl:gap-12" style="margin:auto;">
+        <div class="flex flex-row justify-center items-center md:flex-col" style="margin: 1rem 0 1rem 0;">
+          <img src="/assets/images/residentialMisting.png" class="w-2/5 max-w-[200px] md:w-[150px]">
+          <div class="w-3/5 flex flex-col justify-center items-center md:w-[250px] lg:w-[350px]  xl:w-[250px]">
+            <h1 class="font-bold text-xl text-center">Residential & Commercial Misting Systems</h1>
+            <p class="text-center">Stay cool with our high-performance misting solutions for homes & businesses.</p>
+          </div>
+        </div>
+        <div class="flex flex-row justify-center items-center md:flex-col" style="margin: 1rem 0 1rem 0;">
+          <img src="/assets/images/professional.png" class="w-2/5 max-w-[200px] md:w-[150px]">
+          <div class="w-3/5 flex flex-col justify-center items-center md:w-[250px] lg:w-[350px]  xl:w-[250px]">
+            <h1 class="font-bold text-xl text-center">Professional Installation</h1>
+            <p class="text-center">Expert setup for maximum cooling efficiency & reliability.</p>
+          </div>
+        </div>
+        <div class="flex flex-row justify-center items-center md:flex-col" style="margin: 1rem 0 1rem 0;">
+          <img src="/assets/images/protection.png" class="w-2/5 max-w-[200px] md:w-[150px]">
+          <div class="w-3/5 flex flex-col justify-center items-center md:w-[250px] lg:w-[350px]  xl:w-[250px]">
+            <h1 class="font-bold text-xl text-center">Maintenance & Protection Plans</h1>
+            <p class="text-center">Keep your system running smoothly all year with our service plans.</p>
+          </div>
+        </div>
+        <div class="flex flex-row justify-center items-center md:flex-col" style="margin: 1rem 0 1rem 0;">
+          <img src="/assets/images/custom.png" class="w-2/5 max-w-[200px] md:w-[150px]">
+          <div class="w-3/5 flex flex-col justify-center items-center md:w-[250px] lg:w-[350px] xl:w-[250px] ">
+            <h1 class="font-bold text-xl text-center">Custom Design & Setup</h1>
+            <p class="text-center">Tailored misting solutions built for your unique space & needs.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+</section>
+  <!-- ============================================ -->
   <!--                   Benefits                   -->
   <!-- ============================================ -->
 
-<section id="benefits" class="w-full relative" style="margin-top: 32px;">
+<section id="benefits" class="w-full relative" style="margin-top: clamp(4rem,20vw,8rem);">
     <h1 class="font-bold text-2xl place-items-center sm:text-center lg:text-3xl" style="margin-left: 1rem; color:#2d5ca8;margin-bottom: 1rem;">
-    FEATURES & BENEFITS</h1>
+    BENEFITS OF MISTING</h1>
     <div class="w-full flex flex-col justify-center items-center" style="margin-bottom: 2rem;">
-    <p class=" w-3/4 text-center text-sm lg:text-2xl">See how Mist’r adds comfort, safety, and ease to any outdoor space.</p>
+    <p class=" w-3/4 text-center text-sm lg:text-2xl">Misting systems provide cooling, bug control, and outdoor comfort for both family and pets. Designed for high-humidity areas, the ultra-fine mist evaporates instantly to cool air while keeping everyone dry. 
+      It also helps reduce environmental nuisances like insects, dust, and allergens.</p>
     </div>
     <div class="relative w-full">
-      <div class="absolute inset-0 -z-10 bg-[#2d5ca8]">
+      <div class="absolute inset-0 -z-10 bg-[#2d5ca8] lg:w-3/4" style="margin:auto;">
         <img src="/assets/images/featureBg.jpg" class="object-cover w-full h-full opacity-50">
       </div>
       <div class="relative w-5/6 z-10 flex flex-col justify-center items-center lg:w-3/4 lg:flex-row lg:flex-wrap lg:gap-x-8 xl:w-1/2" style="margin: auto;padding: 1rem 0;">
+        <div class="grid grid-cols-3 grid-row-2 rounded-2xl max-w-[350px] lg:h-[145px]" style="padding: 1rem;background-color: rgba(16, 16, 15, 0.5);margin: .5rem 0;">
+          <span class="text-5xl col-span-1 row-span-2 flex justify-center items-center lg:items-start">💧</span>
+          <h1 class="font-semibold col-span-2 lg:text-2xl" style="color: #68bbe9;">Keep Cool</h1>
+          <p class="col-span-2" style="color: white;">Reduces outdoor temperatures by up to 20°F.</p>
+        </div>
+
+        <div class="grid grid-cols-3 grid-row-2 rounded-2xl max-w-[350px] lg:h-[145px]" style="padding: 1rem;background-color: rgba(16, 16, 15, 0.5);margin: .5rem 0;">
+          <span class="text-5xl col-span-1 row-span-2 flex justify-center items-center">🌿</span>
+          <h1 class="font-semibold col-span-2 lg:text-2xl" style="color: #68bbe9;">Bug-Free </h1>
+          <p class="col-span-2" style="color: white;">Fine mist repels flying insects.</p>
+        </div>
+
+        <div class="grid grid-cols-3 grid-row-2 rounded-2xl max-w-[350px] lg:h-[145px]" style="padding: 1rem;background-color: rgba(16, 16, 15, 0.5);margin: .5rem 0;">
+          <span class="text-5xl col-span-1 row-span-2 flex justify-center items-center">🔧</span>
+          <h1 class="font-semibold col-span-2 lg:text-2xl" style="color: #68bbe9;">Easy Maintenance</h1>
+          <p class="col-span-2" style="color: white;">Professional installation or DIY available</p>
+        </div>
+
+        <div class="grid grid-cols-3 grid-row-2 rounded-2xl max-w-[350px] lg:h-[145px]" style="padding: 1rem;background-color: rgba(16, 16, 15, 0.5);margin: .5rem 0;">
+          <span class="text-5xl col-span-1 row-span-2 flex justify-center items-center">🍽️</span>
+          <h1 class="font-semibold col-span-2 lg:text-2xl" style="color: #68bbe9;">Dine Comfortably</h1>
+          <p class="col-span-2" style="color: white;">Enjoy patios & commercial spaces all year long.</p>
+        </div>
+      </div>
+      <div class="relative w-full">
+      <div class="absolute inset-0 -z-10 bg-[#2d5ca8]">
+        <img src="/assets/images/featureBg.jpg" class="object-cover w-full h-full opacity-50">
+      </div>
+      <!--Old Benefits -->
+      <!-- <div class="relative w-5/6 z-10 flex flex-col justify-center items-center lg:w-3/4 lg:flex-row lg:flex-wrap lg:gap-x-8 xl:w-1/2" style="margin: auto;padding: 1rem 0;">
         <div class="grid grid-cols-3 grid-row-2 rounded-2xl max-w-[350px] lg:h-[145px]" style="padding: 1rem;background-color: rgba(16, 16, 15, 0.5);margin: .5rem 0;">
           <span class="text-5xl col-span-1 row-span-2 flex justify-center items-center lg:items-start">💧</span>
           <h1 class="font-semibold col-span-2 lg:text-2xl" style="color: #68bbe9;">Instant Cooling</h1>
@@ -145,14 +221,14 @@ const optimizedImage = await getImage({src: landingImage, format: 'avif'})
           <h1 class="font-semibold col-span-2 lg:text-2xl" style="color: #68bbe9;">Flexible Options</h1>
           <p class="col-span-2" style="color: white;">Rent or buy, for homes, businesses, or events</p>
         </div>
-      </div>
+      </div> -->
     </div>
 </section>
   <!-- ============================================ -->
   <!--                  Gallery                 -->
   <!-- ============================================ -->
 
- <section id="galley" class="" style="margin-top: 32px;">
+ <section id="gallery" class="" style="margin-top: clamp(4rem,20vw,8rem);">
   <h1 class="font-bold text-2xl sm:text-center lg:text-3xl" style="margin-left: 1rem; color:#2d5ca8;">GALLERY</h1>
   <div class="w-full flex flex-col justify-center items-center">
     <p class=" w-3/4 text-center text-sm lg:text-2xl">Explore our gallery to see how Mist’r transforms outdoor spaces with 
@@ -172,7 +248,7 @@ const optimizedImage = await getImage({src: landingImage, format: 'avif'})
   <!--                  Reviews                -->
   <!-- ============================================ -->
 
- <section id="reviews" class="" style="margin-top: 32px;">
+ <section id="reviews" class="" style="margin-top: clamp(4rem,20vw,8rem);">
   <h1 class="font-bold text-2xl sm:text-center lg:text-3xl" style="margin-left: 1rem; color:#2d5ca8;">REVIEWS</h1>
   <div class="w-full flex flex-col justify-center items-center" style="margin-bottom: 2rem;">
     <p class=" w-3/4 text-center text-sm lg:text-2xl">Hear from our happy customers about how Mist’r’s cooling systems have transformed their outdoor spaces.</p>
@@ -192,7 +268,8 @@ const optimizedImage = await getImage({src: landingImage, format: 'avif'})
       </div>
       <div>
         <p class="italic">
-          "This product is amazing! It really helped me stay cool during the hot summer. Highly recommend it to everyone!"
+          "The misting system completely transformed our patio! It’s like having air conditioning
+           outdoors — perfect for summer gatherings."
         </p>
       </div>
     </div>
@@ -211,7 +288,8 @@ const optimizedImage = await getImage({src: landingImage, format: 'avif'})
       </div>
       <div>
         <p class="italic">
-          "This product is amazing! It really helped me stay cool during the hot summer. Highly recommend it to everyone!"
+          "Quick installation, friendly service, and immediate results. 
+          We noticed a huge difference in comfort right away. Highly recommended!"
         </p>
       </div>
     </div>
@@ -229,7 +307,8 @@ const optimizedImage = await getImage({src: landingImage, format: 'avif'})
       </div>
       <div>
         <p class="italic">
-          "This product is amazing! It really helped me stay cool during the hot summer. Highly recommend it to everyone!"
+          "We’ve been using the misting system for weeks now and absolutely love it. 
+          It’s effective, quiet, and keeps our space cool without soaking everything."
         </p>
       </div>
     </div>
@@ -239,39 +318,141 @@ const optimizedImage = await getImage({src: landingImage, format: 'avif'})
   <!--                   About US                   -->
   <!-- ============================================ -->
 
-<section id="about" class="w-full" style="margin: 32px 0 32px 0;">
+<section id="about" class="w-full" style="margin-top: clamp(4rem,20vw,8rem);">
   <h1 class="font-bold text-2xl place-items-center sm:text-center lg:text-3xl l" style="margin-left: 1rem; color:#2d5ca8;margin-bottom: 2rem;">
     ABOUT US</h1>
     <div class="w-4/5 lg:flex lg:flex-row lg:justify-center lg:items-start lg:gap-4 " style="margin:auto;">
       <img src="/assets/images/mistingBg.jpg" class="w-full lg:w-1/2" style="margin-bottom: 20px;">
-      <h2 class="text-md text-justify indent-8 lg:text-2xl lg:hidden">Mist’r is a local, family-run
-         business dedicated to helping Missouri families and businesses stay cool, comfortable, and bug-free—even on
-          the hottest days.</h2>
-        <h2 class="indent-8 lg:text-2xl lg:indent-0 lg:hidden">With a passion for outdoor living and a commitment to customer satisfaction, we 
-        specialize in high-pressure patio misting systems for residential, commercial, and event use. 
-        Whether you’re hosting a backyard BBQ, managing a busy restaurant patio, or planning a summer event, our misting 
-        systems bring refreshing relief and reliable performance.</h2>
-        <h2 class="indent-8 lg:text-2xl lg:indent-0 lg:hidden">From rentals and sales to professional installation and maintenance, Mist’r 
-        offers complete misting solutions built around your needs. We proudly serve communities
-        throughout Downtown West St. Louis, Cottleville, Clayton, O'Fallon, Ladue, St. Louis, St. Charles, 
-        Chesterfield, and Saint Peters.Cool comfort starts here—with Mist’r.</h2>  
+      <h2 class="text-md text-justify indent-8 lg:text-2xl lg:hidden">At Mist’r Service, our mission is to make your outdoor spaces cooler and more comfortable. After experiencing the benefits of misting systems on the West Coast, we knew Missouri could benefit from this game-changing cooling solution.
+          Ready to have the coolest patio in the neighborhood? Let us transform your outdoor space today!</h2>
+          <h1 class="font-bold text-xl lg:hidden" style="margin-top: 1rem;">DAVE GRESSO</h1>
+        <span class="italic lg:hidden">Founder</span>
         <!--DeskTOP view -->
-      <h2 class="hidden lg:block lg:text-2xl">Mist’r is a local, family-run
-         business dedicated to helping Missouri families and businesses stay cool, comfortable, and bug-free—even on
-          the hottest days.
-        With a passion for outdoor living and a commitment to customer satisfaction, we 
-        specialize in high-pressure patio misting systems for residential, commercial, and event use. 
-        Whether you’re hosting a backyard BBQ, managing a busy restaurant patio, or planning a summer event, our misting 
-        systems bring refreshing relief and reliable performance.
-        From rentals and sales to professional installation and maintenance, Mist’r 
-        offers complete misting solutions built around your needs. We proudly serve communities
-        throughout Downtown West St. Louis, Cottleville, Clayton, O'Fallon, Ladue, St. Louis, St. Charles, 
-        Chesterfield, and Saint Peters.Cool comfort starts here—with Mist’r.</h2>     
+      <h2 class="hidden lg:block lg:text-2xl">At Mist’r Service, our mission is to make your outdoor spaces cooler and more comfortable. After experiencing the benefits of misting systems on the West Coast, we knew Missouri could benefit from this game-changing cooling solution.
+        Ready to have the coolest patio in the neighborhood? Let us transform your outdoor space today!<br>
+        <span style="content: "";"></span><br>
+      <span class="font-bold text-2xl">DAVE GRESSO</span><br>
+        <span class="italic ">Founder</span>
+      </h2>     
     </div>
 </section>
  
+<FAQ/>
+  <!-- ============================================ -->
+  <!--                   CONTACT US                   -->
+  <!-- ============================================ -->
+<section id="cs-contact" >
+  <h1 class="font-bold text-2xl place-items-center sm:text-center lg:text-3xl l" style="margin-left: 1rem; color:#2d5ca8;margin-bottom: 2rem;">
+    CONTACT US</h1>
+    <div class="w-full flex flex-col justify-center items-center" style="margin-bottom: 2rem;">
+      <p class=" w-3/4 text-center text-sm lg:text-2xl">We’d love to hear from you! Whether you have questions, need assistance, or want to book 
+        a service, our team is ready to help. Reach out anytime — we’re just a message away.</p>
+    </div>
+    <div class="cs-container">
+      
+      <form id="cs-form" name="Contact Form" method="post">
+        
+        <!-- <div class="cs-content">
+          <span class="cs-topper">Contact</span>
+          <h2 class="cs-title">Get in Touch</h2>
+          <p class="cs-text">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ridiculus
+            elementum ullamcorper ipsum porttitor aliquam. Id magna urna
+            ultrices odio pulvinar. Sed ut.
+          </p>
+        </div> -->
+        <label>
+          Name
+          <input
+            required
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Name"
+          />
+        </label>
+        <label>
+          Email
+          <input
+            required
+            type="text"
+            id="email"
+            name="email"
+            placeholder="Email"
+          />
+        </label>
+        <label>
+          Phone
+          <input
+            required
+            type="text"
+            id="phone"
+            name="phone"
+            placeholder="Phone"
+          />
+        </label>
+        <label>
+          How Did You Find Us
+          <input
+            type="text"
+            id="find"
+            name="find-us"
+            placeholder="How did you find us?"
+          />
+        </label>
+        <label class="cs-label-message">
+          Message
+          <textarea
+            required
+            name="Message"
+            id="message"
+            placeholder="Write message..."></textarea>
+        </label>
+        <button class="cs-button-solid" type="submit">Submit Message</button>
+      </form>
+      <div class="cs-right-section">
+        <!--Email-->
+        <span class="cs-header">Email</span>
+        <a class="cs-link" href={`mailto:${client.email}`}>{client.email}</a>
+        <!--Phone-->
+        <span class="cs-header">Phone</span>
+        <a class="cs-link" href={`tel:${client.phoneForTel}`}
+          >{client.phoneFormatted}</a
+        >
+        <!--Address-->
+        <span class="cs-header">Address</span>
+        <a class="cs-link" href={client.address.mapLink}>
+          {client.address.lineOne},
+          <br />
+          {client.address.lineTwo},
+          <br />
+          <span class="cs-block">
+            {client.address.city}
+            {client.address.state}
+            {client.address.zip}
+          </span>
+        </a>
 
-  <CTA />
+        <!-- Background Image-->
+        <picture class="cs-bg-picture">
+          <source
+            media="(min-width: 601px)"
+            srcset="/assets/images/mistingBg.jpg"
+          />
+          <img
+            aria-hidden="true"
+            decoding="async"
+            src="/assets/images/mistingBg.jpg"
+            alt="building"
+            loading="lazy"
+            width="2500"
+            height="1667"
+          />
+        </picture>
+      </div>
+    </div>
+</section>
+<CTA />
 </BaseLayout>
 
 <style lang="less">
@@ -1303,6 +1484,329 @@ const optimizedImage = await getImage({src: landingImage, format: 'avif'})
 
         .cs-desc {
           color: var(--primaryLight);
+        }
+      }
+    }
+  }
+  /* Mobile - 360px */
+  @media only screen and (min-width: 0em) {
+    :root {
+      /* 13px - 16px */
+      --topperFontSize: clamp(0.8125rem, 1.6vw, 1rem);
+      /* 31px - 49px */
+      --headerFontSize: clamp(1.9375rem, 4.5vw, 3.0625rem);
+      --bodyFontSize: 1rem;
+
+      /* 60px - 100px top and bottom */
+      --sectionPadding: clamp(3.75em, 7.82vw, 6.25em) 1rem;
+    }
+
+    #cs-contact {
+      font-family: "Roboto", "Arial", sans-serif;
+      padding: var(--sectionPadding);
+
+      .cs-container {
+        width: 100%;
+        /* changes to 1280px at desktop */
+        max-width: (800/16rem);
+        margin: auto;
+      }
+
+      .cs-content {
+        width: 100%;
+      }
+
+      .cs-topper {
+        text-align: left;
+        /* 8px - 12px */
+        margin-bottom: clamp(0.5rem, 1.4vw, 0.75rem);
+      }
+
+      .cs-title {
+        text-align: left;
+        max-width: (800/16rem);
+      }
+
+      .cs-text {
+        text-align: left;
+        /* 404px - 522px */
+        max-width: clamp(25.25rem, 30vw, 32.625rem);
+        margin: 0 auto 0 0;
+        /* 40px - 48px */
+        margin-bottom: clamp(2.5rem, 6.3vw, 3rem);
+      }
+
+      #cs-form {
+        margin-bottom: (40/16rem);
+        label {
+          font-size: (16/16rem);
+          font-weight: 700;
+          line-height: 1.5em;
+          /* 12px - 20px */
+          margin-bottom: clamp(0.75rem, 1.3em, 1.25rem);
+          color: var(--headerColor);
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: flex-start;
+        }
+
+        .cs-label-message {
+          /* 32px - 48px */
+          margin-bottom: clamp(2rem, 6.3vw, 3rem);
+        }
+
+        input,
+        textarea {
+          font-size: (16/16rem);
+          width: 100%;
+          height: (64/16rem);
+          margin-top: (4/16rem);
+          /* prevents border & padding from affecting height */
+          box-sizing: border-box;
+          padding-left: (20/16rem);
+          border: 1px solid #b4b2c7;
+          border-radius: (8/16rem);
+          transition: border 0.3s;
+
+          &:hover {
+            border: 1px solid var(--primary);
+          }
+        }
+
+        textarea {
+          font-family: inherit;
+          min-height: (120/16rem);
+          padding-top: (20/16rem);
+        }
+
+        .cs-button-solid {
+          width: 100%;
+          border: none;
+        }
+      }
+
+      .cs-right-section {
+        height: (320/16rem);
+        /* 24px - 40px top & bottom */
+        /* 20px - 40px left & right */
+        padding: clamp(1.5rem, 3vw, 2.5rem) clamp(1.25rem, 3vw, 2.5rem);
+        border-radius: (8/16rem);
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: flex-start;
+        position: relative;
+        /* cuts off corners on img tag */
+        overflow: hidden;
+      }
+
+      .cs-header {
+        /* 16px - 20px */
+        font-size: clamp(1rem, 3vw, 1.25rem);
+        font-weight: 700;
+        line-height: 1.2em;
+        margin-bottom: (8/16rem);
+        color: var(--bodyTextColorWhite);
+        display: block;
+      }
+
+      .cs-link {
+        /* 16px - 20px */
+        font-size: clamp(1rem, 3vw, 1.25rem);
+        line-height: 1.2em;
+        text-decoration: none;
+        margin-bottom: (20/16rem);
+        color: var(--bodyTextColorWhite);
+        display: block;
+        position: relative;
+
+        &:before {
+          /* Animated underline */
+          content: "";
+          width: 0%;
+          height: 2px;
+          /* current color of the parent */
+          background: currentColor;
+          opacity: 1;
+          display: block;
+          position: absolute;
+          bottom: (-2/16rem);
+          left: 0;
+          transition: width 0.3s;
+        }
+
+        &:hover {
+          &:before {
+            width: 100%;
+          }
+        }
+
+        &:last-of-type {
+          margin-bottom: 0;
+        }
+      }
+
+      .cs-block {
+        /* sends second address line to the bottom on its own line */
+        display: block;
+      }
+
+      .cs-bg-picture {
+        width: 100%;
+        height: 100%;
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        transition: transform 0.6s;
+
+        &:before {
+          /* background color overlay */
+          content: "";
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(
+            180deg,
+            rgba(0, 0, 0, 0) 0%,
+            rgba(0, 0, 0, 0.8) 100%
+          );
+          display: block;
+          position: absolute;
+          top: 0;
+          left: 0;
+          z-index: 1;
+        }
+
+        img {
+          width: 100%;
+          height: 100%;
+          /* Makes img tag act as a background image */
+          object-fit: cover;
+          position: absolute;
+          top: 0;
+          left: 0;
+        }
+      }
+    }
+  }
+
+  /* Tablet - 700px */
+  @media only screen and (min-width: 43.75em) {
+    #cs-contact {
+      #cs-form {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        flex-wrap: wrap;
+
+        label {
+          width: 48%;
+        }
+
+        .cs-label-message {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  /* Small Desktop - 1024px */
+  @media only screen and (min-width: 64em) {
+    #cs-contact {
+      .cs-container {
+        max-width: (1280/16rem);
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-start;
+        gap: (80/16rem);
+      }
+
+      #cs-form {
+        max-width: (630/16rem);
+        label {
+          width: 100%;
+        }
+      }
+
+      .cs-right-section {
+        width: 40%;
+        max-width: (542/16rem);
+        /* changes to 578px at 1300px wide */
+        height: (686/16rem);
+        /* prevents flexbox from squishing it */
+        flex: none;
+
+        &:hover {
+          .cs-bg-picture {
+            transform: scale(1.1);
+          }
+        }
+      }
+
+      .cs-block {
+        /* goes back to inline so it stays "in line" with the rest of the text */
+        display: inline-block;
+      }
+    }
+  }
+
+  /* Small Desktop - 1300px */
+  @media only screen and (min-width: 81.25em) {
+    #cs-contact {
+      #cs-form {
+        column-gap: (0/16rem);
+        label {
+          width: 48%;
+          max-width: (305/16rem);
+        }
+
+        .cs-label-message {
+          max-width: 100%;
+        }
+      }
+
+      .cs-right-section {
+        height: (578/16rem);
+      }
+    }
+  }
+
+  /* Dark Mode */
+  @media only screen and (min-width: 0em) {
+    body.dark-mode {
+      #cs-contact {
+        .cs-text,
+        .cs-title {
+          color: var(--bodyTextColorWhite);
+        }
+
+        .cs-topper {
+          color: var(--primaryLight);
+        }
+
+        #cs-form {
+          label,
+          input,
+          textarea {
+            color: var(--bodyTextColorWhite);
+            background-color: transparent;
+
+            &::placeholder {
+              /* lighten up the color of the text by 40%*/
+              filter: brightness(1.4);
+            }
+          }
+        }
+
+        .cs-bg-picture {
+          background-color: #000;
+
+          img {
+            /* lets parent background-color bleed through and darken it */
+            opacity: 0.5;
+          }
         }
       }
     }

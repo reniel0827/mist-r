@@ -67,28 +67,13 @@ import "../styles/global.css";
                 </a>
               )}
               
-              {entry.children?.length > 0 && (
-                // If entry has children in navData.json, create a drop down menu
-                <ul id={`submenu-${entry.key}`} class="cs-drop-ul">
-                  {entry.children.map((child) => (
-                    <li class="cs-drop-li">
-                      <a 
-                        href={child.url} 
-                        class="cs-li-link cs-drop-link"
-                        aria-current={Astro.url.pathname === child.url ? "page" : undefined}
-                      >
-                        {child.key}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              )}
+              
             </li>
           ))}
         </ul>
       </div>
     </nav>
-    <a href="/contact" class="cs-button-solid cs-nav-button">Contact Us</a>
+    <a href="#cs-contact" class="cs-button-solid cs-nav-button">Contact Us</a>
     <!--Dark Mode toggle: remove component if you don't want to enable a dark mode toggle-->
     <DarkModeToggle />
   </div>
