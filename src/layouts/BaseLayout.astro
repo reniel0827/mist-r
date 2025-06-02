@@ -44,6 +44,21 @@ const { description, title, preloadedImage } = Astro.props as Props;
             <meta name="keywords" content="">
             <link rel="canonical" href={`https://${client.domain}${Astro.url.pathname}`}>
 
+            <!-- Facebook Meta Tags -->
+            <meta property="og:url" content="https://mistrservices.netlify.app/">
+            <meta property="og:type" content="website">
+            <meta property="og:title" content="Mist'r Service">
+            <meta property="og:description" content="Mist'R Services offer cooling, bug control, and outdoor comfort for families and pets. Ideal for humid areas, they cool the air instantly while keeping you dry.">
+            <meta property="og:image" content="https://mistrservices.netlify.app/_astro/mistRlogo.D2tswd2l_2ppQVh.avif">
+
+            	<!-- Twitter Meta Tags -->
+            <meta name="twitter:card" content="summary_large_image">
+            <meta property="twitter:domain" content="mistrservices.netlify.app">
+            <meta property="twitter:url" content="https://mistrservices.netlify.app/">
+            <meta name="twitter:title" content="Mist'r Service">
+            <meta name="twitter:description" content="Mist'R Services offer cooling, bug control, and outdoor comfort for families and pets. Ideal for humid areas, they cool the air instantly while keeping you dry.">
+            <meta name="twitter:image" content="https://mistrservices.netlify.app/_astro/mistRlogo.D2tswd2l_2ppQVh.avif">
+            
             <!-- If present, preloads the image passed as a prop -->
             {preloadedImage && <link rel="preload" href={preloadedImage.src} as="image" />}
 
