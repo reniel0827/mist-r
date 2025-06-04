@@ -351,7 +351,8 @@ const optimizedImage = await getImage({src: landingImage, format: 'avif'})
     </div>
     <div class="cs-container">
       
-      <form id="cs-form" name="Contact Form" method="post">
+      <form id="cs-form" name="Contact Form" method="post" action="https://api.web3forms.com/submit">
+         <input type="hidden" name="access_key" value="e62f25bf-4fe2-4b53-b58f-5c38b40624fa" />
         
         <!-- <div class="cs-content">
           <span class="cs-topper">Contact</span>
