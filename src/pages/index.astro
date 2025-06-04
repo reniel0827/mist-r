@@ -9,6 +9,7 @@ import client from "@data/client.json";
 // Optimize our landing image and pass it as props to the BaseLayout (for preloading) and Landing (for rendering)
 import landingImage from "public/assets/images/mistRlogo.png" // <-- THE PATH TO THE ASSET YOU WANT TO PRELOAD - The asset must live in src
 import { getImage } from "astro:assets";
+import Contact from "./contact.astro";
 const optimizedImage = await getImage({src: landingImage, format: 'avif'})
 ---
 
@@ -452,6 +453,7 @@ const optimizedImage = await getImage({src: landingImage, format: 'avif'})
       </div>
     </div>
 </section>
+<Contact />
 <CTA />
 </BaseLayout>
 
